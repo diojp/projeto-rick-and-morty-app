@@ -37,31 +37,31 @@ const Hero = () => {
 
     return (
         <>
-            <div className="row">
-                <div className="d-flex">
-                    {characters.map(element => <CharacterCard character={element} key={element.id} />)}
-                </div>
 
-                <nav aria-label="...">
-                    <ul className="pagination">
-                        <li className={page !== '1' ? "page-item" : "page-item disabled"}>
-                            <Link to={`/${(parseInt(page || '0') - 1)}`} className="page-link">Previous</Link>
-                        </li>
-                        {
-                            page !== '1' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') - 1)}</Link></li> : <></>
-                        }
-                        <li className="page-item active" aria-current="page">
-                            <Link to={`/${page}`} className="page-link" >{page}</Link>
-                        </li>
-                        {
-                            page !== '42' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') + 1)}</Link></li> : <></>
-                        }
-                        <li className={page !== '42' ? "page-item" : "page-item disabled"}>
-                            <Link to={`/${(parseInt(page || '0') + 1)}`} className="page-link">Next</Link>
-                        </li>
-                    </ul>
-                </nav>
+            <div className="d-flex flex-wrap justify-content-center">
+                {characters.map(element => <CharacterCard character={element} key={element.id} />)}
             </div>
+
+            <nav aria-label="...">
+                <ul className="pagination justify-content-center">
+                    <li className={page !== '1' ? "page-item" : "page-item disabled"}>
+                        <Link to={`/${(parseInt(page || '0') - 1)}`} className="page-link">Previous</Link>
+                    </li>
+                    {
+                        page !== '1' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') - 1)}</Link></li> : <></>
+                    }
+                    <li className="page-item active" aria-current="page">
+                        <Link to={`/${page}`} className="page-link" >{page}</Link>
+                    </li>
+                    {
+                        page !== '42' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') + 1)}</Link></li> : <></>
+                    }
+                    <li className={page !== '42' ? "page-item" : "page-item disabled"}>
+                        <Link to={`/${(parseInt(page || '0') + 1)}`} className="page-link">Next</Link>
+                    </li>
+                </ul>
+            </nav>
+
         </>
     );
 };
