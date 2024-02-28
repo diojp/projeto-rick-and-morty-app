@@ -4,17 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 
     return (
-        <nav className="navbar bg-body-tertiary mr-auto">
-            <div className="d-flex flex-row m-2">
-                <Link to={'/'}>
-                    <div className="navbar-nav">Personagem</div>
-                </Link>
-                <Link to={'/episode'}>
-                    <div className="navbar-nav">Episódios</div>
-                </Link>
-                <Link to={'/location'}>
-                    <div className="navbar-nav">Localização</div>
-                </Link>
+        <nav className="navbar bg-body-tertiary mr-auto d-flex justify-content-end">
+            <div className="btn-group me-2">
+                <Link to={'/character'} className="btn btn-primary" aria-current="page">Personagem</Link>
+                <Link to={'/episode'} className="btn btn-primary">Episódios</Link>
+                <Link to={'/location'} className="btn btn-primary">Localização</Link>
             </div>
         </nav>
     );

@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 
+import { CharacterType } from "../../Types/CharacterType";
+
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
 
-const CharacterCard = ({ character }: { character: any; }) => {
-
+const CharacterCard = ({ character }: { character: CharacterType; }) => {
 
     return (
         <Link to={`/characterdetails/${character.id}`}>
-            <div className="card m-1" style={{ width: "18rem" }}>
+            <div className="card m-2" style={{ width: "19rem", height: "28rem" }}>
                 <img src={character.image} className="card-img-top" alt="..." />
-                <div className="card-body">
-                    <p className="card-text">
+                <div className="card-body justify-content-center">
+                    <label className="card-text">
                         Name: {character.name}
-                    </p>
-                    <p className="card-text">
+                    </label><br />
+                    <label className="card-text">
                         Status: {character.status}
-                    </p>
+                    </label> <br />
+                    <label className="card-text">
+                        Species: {character.species}
+                    </label><br />
+                    <label className="card-text">
+                        Location: {character.location.name}
+                    </label>
                 </div>
             </div>
         </Link>
-
     );
 };
 

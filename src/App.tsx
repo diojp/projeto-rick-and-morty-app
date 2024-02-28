@@ -17,20 +17,22 @@ function App() {
       <div className="container-xl bg-sucess " data-bs-theme="dark">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Navigate to="/1" />} />
-          <Route path="/:page" element={<Character />} />          
+          <Route path="/" element={<Navigate to="/character" />} />
 
-          <Route path="/characterdetails/:id" element={<CharacterDetails />} />
+          <Route path="/character" element={<Navigate to="/character/1" />} />
+          <Route path="/character/:page" element={<Character />} />
+
           <Route path="/characterdetails" element={<Navigate to="/characterdetails/1" />} />
+          <Route path="/characterdetails/:id" element={<CharacterDetails />} />
 
-          <Route path="/episode/:id" element={<Episode />} />
           <Route path="/episode" element={<Navigate to="/episode/1" />} />
+          <Route path="/episode/:page" element={<Episode />} />
 
-          <Route path="/episodedetails/:id" element={<EpisodeDetails />} />
           <Route path="/episodedetails" element={<Navigate to="/episodedetails/1" />} />
+          <Route path="/episodedetails/:id" element={<EpisodeDetails />} />
 
-          <Route path="/location/:id" element={<Location />} />
           <Route path="/location" element={<Navigate to="/location/1" />} />
+          <Route path="/location/:page" element={<Location />} />
 
           <Route path="/locationdetails/:id" element={<LocationDetails />} />
           <Route path="/locationdetails" element={<Navigate to="/locationdetails/1" />} />
