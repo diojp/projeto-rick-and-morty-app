@@ -3,26 +3,28 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 
-import CharacterCard from "../CharacterCard/CharacterCard";
+import LocationCard from "../Card/LocationCard";
 import { Routes, Route, Navigate, Link, useParams } from "react-router-dom";
 import { CharacterResponse, getCharacters } from "../../services";
 
 
 
-const Hero = () => {
+const Location = () => {
 
     const { page } = useParams() || 1;
 
 
-    const [characters, setCharacters] = useState<any[]>([]);
+    const [locations, setLocation] = useState<any[]>([]);
 
 
 
     const getData = () => {
         try {
-            axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`)
+            axios.get(`https://rickandmortyapi.com/api/location/?page=${page}`)
                 .then(function (resposta: any) {
-                    setCharacters(resposta.data.results);
+                    setLocation(resposta.data.results);
+
+                    console.log(resposta)
                 });
         } catch (err) {
             console.error(err);
@@ -33,31 +35,31 @@ const Hero = () => {
         getData();
     }, [page]);
 
-    <Route path="/character" element={<Navigate to="/character/1" />} />;
+    <Route path="/location" element={<Navigate to="/location/1" />} />;
 
     return (
         <>
 
             <div className="d-flex flex-wrap justify-content-center">
-                {characters.map(element => <CharacterCard character={element} key={element.id} />)}
+                {locations.map(element => <LocationCard location={element} key={element.id} />)}
             </div>
 
             <nav aria-label="...">
                 <ul className="pagination justify-content-center">
                     <li className={page !== '1' ? "page-item" : "page-item disabled"}>
-                        <Link to={`/${(parseInt(page || '0') - 1)}`} className="page-link">Previous</Link>
+                        <Link to={`/location/${(parseInt(page || '0') - 1)}`} className="page-link">Previous</Link>
                     </li>
                     {
-                        page !== '1' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') - 1)}</Link></li> : <></>
+                        page !== '1' ? <li className="page-item"><Link to={`/location/${page}`} className="page-link">{(parseInt(page || '0') - 1)}</Link></li> : <></>
                     }
                     <li className="page-item active" aria-current="page">
-                        <Link to={`/${page}`} className="page-link" >{page}</Link>
+                        <Link to={`/location/${page}`} className="page-link" >{page}</Link>
                     </li>
                     {
-                        page !== '42' ? <li className="page-item"><Link to={`/${page}`} className="page-link">{(parseInt(page || '0') + 1)}</Link></li> : <></>
+                        page !== '4' ? <li className="page-item"><Link to={`/location/${page}`} className="page-link">{(parseInt(page || '0') + 1)}</Link></li> : <></>
                     }
                     <li className={page !== '42' ? "page-item" : "page-item disabled"}>
-                        <Link to={`/${(parseInt(page || '0') + 1)}`} className="page-link">Next</Link>
+                        <Link to={`/location/${(parseInt(page || '0') + 1)}`} className="page-link">Next</Link>
                     </li>
                 </ul>
             </nav>
@@ -66,4 +68,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default Location;

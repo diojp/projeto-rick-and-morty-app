@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Details = () => {
+const CharacterDetails = () => {
 
 
     const [character, setCharacter] = useState({ id: -1, name: 'aaa' });
@@ -38,4 +38,4 @@ const Details = () => {
     );
 };
 
-export default Details;
+export default CharacterDetails;
