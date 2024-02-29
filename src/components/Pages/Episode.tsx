@@ -35,8 +35,7 @@ const Episode = () => {
     };
 
     useEffect(() => {
-        getData();
-        
+        getData();        
     }, [page]);
 
     <Route path="/episode" element={<Navigate to="/episode/1" />} />;
@@ -47,7 +46,7 @@ const Episode = () => {
             <div className="d-flex flex-wrap justify-content-center">
                 {episodes.map(element => <EpisodeCard episode={element} key={element.id} />)}
             </div>
-            {console.log("asdasd",page)}
+            
             <Pagination info={info} currentPage={page} namePage='episode' />
 
         </>

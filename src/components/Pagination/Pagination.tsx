@@ -5,12 +5,12 @@ const Pagination = ({ info, currentPage, namePage }: { info: any, currentPage: a
 
     return (
         <nav aria-label="...">
-            <ul className="pagination justify-content-center mt-2">
+            <ul className="pagination justify-content-center mt-2 ">
                 <li className={info.prev === null ? "page-item disabled" : "page-item"}>
                     <Link className="page-link" to={`/${namePage}/1`} >Fist</Link>
                 </li>
 
-                <li className={info.prev === null ? "page-item disabled" : "page-item"}>
+                <li className={info.prev === null ? "page-item disabled" : "page-item "}>
                     <Link className="page-link" to={`/${namePage}/${parseInt(currentPage) - 1}`} >Previous</Link>
                 </li>
                 {info.prev && <li className="page-item"><Link className="page-link" to={`/${namePage}/${parseInt(currentPage) - 1}`}>{currentPage && parseInt(currentPage) - 1}</Link></li>}

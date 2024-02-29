@@ -9,18 +9,12 @@ const LocationCard = ({ location }: { location: any; }) => {
 
     return (
         <Link to={`/locationdetails/${location.id}`}>
-            <div className="card m-1" style={{ width: "18rem" }}>
-                <img src={location.image} className="card-img-top" alt="..." />
+            <div className="card m-2" style={{ width: "18rem", height: "18rem" }}>
+                {/* <img src={location.image} className="card-img-top" alt="..." /> */}
                 <div className="card-body">
-                    <p className="card-text">
-                        Name: {location.name}
-                    </p>
-                    <p className="card-text">
-                        Tyoe: {location.type}
-                    </p>
-                    <p className="card-text">
-                        Dimension: {location.dimension}
-                    </p>
+                    <p className="m-2 fs-5">Name: {location.name}</p>
+                    <p className="m-2 fs-5">Type: {location.type}</p>
+                    <p className="m-2 fs-5">Dimension: {location.dimension}</p>
                 </div>
             </div>
         </Link>

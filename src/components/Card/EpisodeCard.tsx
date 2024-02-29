@@ -9,18 +9,11 @@ const CharacterCard = ({ episode }: { episode: any; }) => {
 
     return (
         <Link to={`/episodedetails/${episode.id}`}>
-            <div className="card m-1" style={{ width: "18rem" }}>
-                <img src={episode.image} className="card-img-top" alt="..." />
+            <div className="card m-2" style={{ width: "18rem", height: "10rem" }}>
+                {/* <img src={episode.image} className="card-img-top" alt="..." /> */}
                 <div className="card-body">
-                    <p className="card-text">
-                        Name: {episode.name}
-                    </p>
-                    <p className="card-text">
-                        Status: {episode.air_date}
-                    </p>
-                    <p className="card-text">
-                        Status: {episode.episode}
-                    </p>
+                    <p className="m-2 fs-5">Name: {episode.name}</p>
+                    <p className="m-2 fs-5">On air: {episode.air_date}</p>
                 </div>
             </div>
         </Link>

@@ -9,6 +9,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import CharacterDetails from './components/Details/CharacterDetails';
 import EpisodeDetails from './components/Details/EpisodeDetails';
 import LocationDetails from './components/Details/LocationDetails';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/locationdetails/:id" element={<LocationDetails />} />
           <Route path="/locationdetails" element={<Navigate to="/locationdetails/1" />} />
         </Routes>
+        <Footer/>
       </div>
     </>
   );
