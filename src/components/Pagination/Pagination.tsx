@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { InfoType } from "../../Types";
 
-const Pagination = ({ info, currentPage, namePage }: { info: any, currentPage: any, namePage: string; }) => {
+const Pagination = ({ info, currentPage, namePage }: { info: InfoType, currentPage: any, namePage: string; }) => {
 
     return (
         <nav aria-label="...">

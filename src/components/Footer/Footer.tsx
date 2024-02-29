@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear()
+    const currentYear = new Date().getFullYear();
     return (
-        <div className="d-flex justify-content-center align-items-center flex-wrap">
+        <div className="d-flex justify-content-center ">
             <p className="text-gray-rm-100 text-success align-items-end">
                 Coded by{' '}
                 <Link to="https://github.com/diojp">
@@ -13,5 +13,5 @@ export default function Footer() {
                 &#169; {currentYear}
             </p>
         </div>
-    )
+    );
 }

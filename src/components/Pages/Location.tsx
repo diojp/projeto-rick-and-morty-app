@@ -17,7 +17,7 @@ const Location = () => {
 
 
     const [locations, setLocation] = useState<LocationType[]>([]);
-    const [info, setInfo] = useState<InfoType[]>([]);
+    const [info, setInfo] = useState<InfoType>({});
 
 
 
@@ -37,7 +37,7 @@ const Location = () => {
         getData();
     }, [page]);
 
-    
+
 
     return (
         <>
@@ -45,7 +45,7 @@ const Location = () => {
             <div className="d-flex flex-wrap justify-content-center">
                 {locations.map(element => <LocationCard location={element} key={element.id} />)}
             </div>
-            <Pagination info={info} currentPage={page} namePage='location' />
+            {/* <Pagination info={info} currentPage={page} namePage='location' /> */}
         </>
     );
 };

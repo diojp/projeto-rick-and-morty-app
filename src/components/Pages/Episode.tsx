@@ -16,7 +16,7 @@ const Episode = () => {
 
 
     const [episodes, setEpisode] = useState<EpisodeType[]>([]);
-    const [info, setInfo] = useState<InfoType[]>([]);
+    const [info, setInfo] = useState<InfoType>({});
 
 
 
@@ -31,11 +31,11 @@ const Episode = () => {
             console.error(err);
         }
 
-        
+
     };
 
     useEffect(() => {
-        getData();        
+        getData();
     }, [page]);
 
     <Route path="/episode" element={<Navigate to="/episode/1" />} />;
@@ -46,7 +46,7 @@ const Episode = () => {
             <div className="d-flex flex-wrap justify-content-center">
                 {episodes.map(element => <EpisodeCard episode={element} key={element.id} />)}
             </div>
-            
+
             <Pagination info={info} currentPage={page} namePage='episode' />
 
         </>

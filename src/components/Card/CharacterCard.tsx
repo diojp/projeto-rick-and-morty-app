@@ -5,12 +5,11 @@ import { CharacterType } from "../../Types/CharacterType";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-
 const CharacterCard = ({ character }: { character: CharacterType; }) => {
 
     return (
         <Link to={`/characterdetails/${character.id}`}>
-            <div className="card m-2" style={{ width: "19rem", height: "28rem" }}>
+            <div className="card m-2 border-success" style={{ width: "19rem", height: "28rem" }}>
                 <img src={character.image} className="card-img-top" alt="..." />
                 <div className="card-body justify-content-center">
                     <label className="card-text">

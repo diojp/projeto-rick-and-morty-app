@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 
-const CharacterCard = ({ episode }: { episode: any; }) => {
+const EpisodeCard = ({ episode }: { episode: any; }) => {
 
 
     return (
@@ -17,8 +17,7 @@ const CharacterCard = ({ episode }: { episode: any; }) => {
                 </div>
             </div>
         </Link>
-
     );
 };
 
-export default CharacterCard;
+export default EpisodeCard;

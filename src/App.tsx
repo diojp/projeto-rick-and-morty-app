@@ -15,7 +15,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <>
-      <div className="container-xl bg-sucess " data-bs-theme="dark">
+      <div className="container-xl bg-sucess min-vh-100" data-bs-theme="dark">
         <Navbar />
         <Routes>
           <Route path="/" element={<Navigate to="/character" />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="/locationdetails/:id" element={<LocationDetails />} />
           <Route path="/locationdetails" element={<Navigate to="/locationdetails/1" />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

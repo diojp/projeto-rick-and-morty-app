@@ -25,23 +25,18 @@ const EpisodeDetails = () => {
         getData();
     }, []);
 
-
-
     if (!episode) {
         return <div>Loading...</div>;
     }
 
-
-
-
     return (
         <>
-            <h1 className = "m-2 text-primary text-sm-start">Name: {episode.name}</h1>
-            <div className="d-flex">                
+            <h1 className="m-2 text-primary text-sm-start">Name: {episode.name}</h1>
+            <div className="d-flex">
                 <div className="d-flex text-dark ">
-                    <p className = "m-2 fs-1 text-success ">Air Date: {episode.air_date}</p>
+                    <p className="m-2 fs-1 text-success ">Air Date: {episode.air_date}</p>
                     {/* <p className = "m-2 fs-1 text-success">Location {episode.characters}</p>                     */}
-                </div>             
+                </div>
 
             </div>
 

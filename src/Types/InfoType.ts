@@ -1,6 +1,6 @@
 export interface InfoType {
-    count: number;
-    pages: number;
-    next: string
-    prev: string
+    count?: number;
+    pages?: number;
+    next?: string;
+    prev?: string;
 }
