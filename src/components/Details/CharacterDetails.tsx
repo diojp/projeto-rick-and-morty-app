@@ -16,43 +16,31 @@ const CharacterDetails = () => {
 
     const getData = async () => {
         try {
-            axios.get(`https://rickandmortyapi.com/api/character/${id}`)
-                .then(function (resposta: any) {
-                    setCharacter(resposta.data);
-                });
-
-            const dataResults: any = await getDataByID('character', id);
-            setCharacter(dataResults);
-
-            fetchEpisodes();
-
+            const characterRes: any = await getDataByID('character', id);
+            setCharacter(await characterRes);
+            const episodeRes: any = await getDataByID('episode', listStringBuilder(characterRes));
+            Array.isArray(episodeRes) ? setEpisodes(episodeRes) : setEpisodes([episodeRes]);
         } catch (err) {
             console.error(err);
-        }        
+        }
     };
 
-    const listStringBuilder = () => {
+    const listStringBuilder = (list: CharacterType) => {
         let episodesList = '';
-        character?.episode.map(episode => episodesList += episode.split('/episode/')[1] + ',');
+        list?.episode.map(episode => episodesList += episode.split('/episode/')[1] + ',');
         episodesList = episodesList.slice(0, -1);
+        console.log(episodesList);
         return episodesList;
     };
 
-    const fetchEpisodes = async () => {
-        const dataResults: any = await getDataByID('episode', listStringBuilder());
-        setEpisodes(dataResults.results);
-        // console.log(dataResults.results);
-        console.log(listStringBuilder());
-    };
-
     useEffect(() => {
-        getData();        
+        getData();
     }, []);
 
     if (!character) {
         return <div>Loading...</div>;
     }
-    
+
 
     return (
         <>
