@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { CharacterType, EpisodeType, LocationType } from "../../Types";
 import { getDataByID } from '../../utils/fetchData';
 import CharacterList from "../List/CharacterList";
+import imagem from "../../img/gargantua.jpg";
 
 const LocationDetails = () => {
 
@@ -52,7 +53,7 @@ const LocationDetails = () => {
             <h3 className="text-success">List of Residents</h3>
            {location.residents.length !== 0 ?  <div className="d-flex flex-wrap justify-content-center">
                 {character?.map(element => <CharacterList character={element} key={element.id} />)}
-            </div> : <p>Não Existe</p> }
+            </div> :  <img className="d-flex justify-content-center" src={imagem} alt="" /> }
         </>
     );
 };
