@@ -10,7 +10,6 @@ const LocationCard = ({ location }: { location: any; }) => {
     return (
         <Link to={`/locationdetails/${location.id}`}>
             <div className="card m-2" style={{ width: "18rem", height: "18rem" }}>
-                {/* <img src={location.image} className="card-img-top" alt="..." /> */}
                 <div className="card-body">
                     <p className="m-2 fs-5">Name: {location.name}</p>
                     <p className="m-2 fs-5">Type: {location.type}</p>

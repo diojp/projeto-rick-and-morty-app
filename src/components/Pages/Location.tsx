@@ -45,7 +45,7 @@ const Location = () => {
             <div className="d-flex flex-wrap justify-content-center">
                 {locations.map(element => <LocationCard location={element} key={element.id} />)}
             </div>
-            {/* <Pagination info={info} currentPage={page} namePage='location' /> */}
+            <Pagination info={info} currentPage={page} namePage='location' />
         </>
     );
 };

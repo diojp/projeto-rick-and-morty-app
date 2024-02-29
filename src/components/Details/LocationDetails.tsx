@@ -50,9 +50,9 @@ const LocationDetails = () => {
             </div>
             <hr className="text-success" />
             <h3 className="text-success">List of Residents</h3>
-            <div className="d-flex flex-wrap justify-content-center">
+           {location.residents.length !== 0 ?  <div className="d-flex flex-wrap justify-content-center">
                 {character?.map(element => <CharacterList character={element} key={element.id} />)}
-            </div>
+            </div> : <p>Não Existe</p> }
         </>
     );
 };
