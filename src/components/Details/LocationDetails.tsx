@@ -1,56 +1,58 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { LocationType } from "../../Types";
+import { CharacterType, EpisodeType, LocationType } from "../../Types";
+import { getDataByID } from '../../utils/fetchData';
+import CharacterList from "../List/CharacterList";
 
 const LocationDetails = () => {
 
     const { id } = useParams();
-    const [location, setCharacter] = useState<LocationType>();
+    const [location, setLocation] = useState<LocationType>();
+    const [character, setCharacter] = useState<CharacterType[]>([]);
 
-
-    const getData = () => {
+    const getData = async () => {
         try {
-            axios.get(`https://rickandmortyapi.com/api/location/${id}`)
-                .then(function (resposta: any) {
-                    setCharacter(resposta.data);
-
-                });
+            const locationRes: any = await getDataByID('location', id);
+            setLocation(await locationRes);
+            const characterRes: any = await getDataByID('character', listStringBuilder(locationRes));
+            Array.isArray(characterRes) ? setCharacter(characterRes) : setCharacter([characterRes]);
         } catch (err) {
             console.error(err);
         }
+    };
+
+    const listStringBuilder = (list: LocationType) => {
+        let characterList = '';
+        list?.residents.map((character: string) => characterList += character.split('/character/')[1] + ',');
+        console.log("list", list);
+        characterList = characterList.slice(0, -1);
+        return characterList;
     };
 
     useEffect(() => {
         getData();
     }, []);
 
-
-
     if (!location) {
         return <div>Loading...</div>;
     }
 
 
-
-
     return (
         <>
+
             <h1 className="m-2 text-primary text-sm-start">{location.name}</h1>
             <div className="d-flex">
-
                 <div className="text-dark ">
                     <p className="m-2 fs-1 text-success ">Type: {location.type}</p>
                     <p className="m-2 fs-1 text-success ">Dimension: {location.dimension}</p>
-                    
                 </div>
-                {/* <div className="div">
-                    <h2>{location.residents}</h2>
-                </div> */}
-
             </div>
-
-
+            <hr className="text-success" />
+            <h3 className="text-success">List of Residents</h3>
+            <div className="d-flex flex-wrap justify-content-center">
+                {character?.map(element => <CharacterList character={element} key={element.id} />)}
+            </div>
         </>
     );
 };

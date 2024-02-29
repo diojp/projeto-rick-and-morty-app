@@ -6,9 +6,14 @@ import { Link } from "react-router-dom";
 
 const CharacterList = ({ character }: { character: any; }) => {
     return (
-        <Link to={`/charactertails/${character.id}`}>
-            <div className="card m-2" style={{ width: "19rem", height: "5rem" }}>
-                <p className="list-group-item list-group-item-action p-1 m-0 fs-5">{character.name}</p>                
+        <Link to={`/characterdetails/${character.id}`}>
+            <div className="card m-2 border-success" style={{ width: "10rem", height: "15rem" }}>
+                <img src={character.image} className="card-img-top" alt="..." />
+                <div className="card-body justify-content-center">
+                    <label className="card-text">
+                        Name: {character.name}
+                    </label><br />                    
+                </div>
             </div>
         </Link>
     );

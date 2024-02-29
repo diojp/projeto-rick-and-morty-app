@@ -27,7 +27,7 @@ const CharacterDetails = () => {
 
     const listStringBuilder = (list: CharacterType) => {
         let episodesList = '';
-        list?.episode.map(episode => episodesList += episode.split('/episode/')[1] + ',');
+        list?.episode.map((episode:string) => episodesList += episode.split('/episode/')[1] + ',');
         episodesList = episodesList.slice(0, -1);
         console.log(episodesList);
         return episodesList;
